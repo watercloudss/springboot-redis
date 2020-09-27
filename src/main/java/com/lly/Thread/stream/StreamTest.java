@@ -28,7 +28,8 @@ public class StreamTest {
         User user7 = new User(7,"ert",26);
         User user8 = new User(8,"ty",24);
         List<User> users = Arrays.asList(user1, user2, user3, user4, user5, user6, user7, user8);
-        users.stream().filter(u->{return u.getId()%2==0;})
+        users.stream()
+                .filter(u->{return u.getId()%2==0;})
                 .filter(u->{return u.getAge()>23;})
                 .map(u->{u.getName().toUpperCase();return u;})
                 .sorted((u1,u2)->{return u2.getName().compareTo(u1.getName());})

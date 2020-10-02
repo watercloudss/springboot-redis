@@ -55,7 +55,7 @@ class A{
     public synchronized void producer() throws InterruptedException {
         while (num!=0){
 //        if(num!=0){
-            this.wait();//线程等待
+            this.wait();//线程等待(阻塞)，wait会释放锁，所以while进行判断
             System.out.println(Thread.currentThread().getName()+" "+num);
         }
         num++;
@@ -69,6 +69,7 @@ class A{
             System.out.println(Thread.currentThread().getName()+" "+num);
         }
         num--;
+        System.out.println(num);
         notifyAll(); //通知线程
     }
 }

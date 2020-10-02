@@ -7,24 +7,34 @@ package com.lly.Thread;
  */
 public class SaleTicketDemo1 {
     public static void main(String[] args) {
-        Ticket t=new Ticket();
-        new Thread(()->{
-            for(int i=0;i<60;i++) {
-                t.sale();
-            }
-            },"a").start();
-        new Thread(()->{
-            for(int i=0;i<60;i++) {
-            t.sale();
-            }
-            },"b").start();
-        new Thread(()->{
-            for(int i=0;i<60;i++) {
-                t.sale();
-            }
-            },"c").start();
+//        Ticket t=new Ticket();
+//        new Thread(()->{
+//            for(int i=0;i<60;i++) {
+//                t.sale();
+//            }
+//            },"a").start();
+//        new Thread(()->{
+//            for(int i=0;i<60;i++) {
+//            t.sale();
+//            }
+//            },"b").start();
+//        new Thread(()->{
+//            for(int i=0;i<60;i++) {
+//                t.sale();
+//            }
+//            },"c").start();
 //        Ticket1 t1 = new Ticket1();
 //        new Thread(t1,"7").start();
+        char a = 0;
+        boolean b = false;
+        float c = 0F;
+        double d = 0D;
+        byte h = 16;
+        short e = 0;
+        int f = 0;
+        long g = 0L;
+
+        System.out.println(h);
     }
 }
 class Ticket{
@@ -35,7 +45,7 @@ class Ticket{
     }
 }
 class Ticket1 implements Runnable{
-    public int num =50;
+    public static int num =50;
 
     @Override
     public void run() {
@@ -43,7 +53,9 @@ class Ticket1 implements Runnable{
     }
 
     public void sale(){
-        if(num>0)
-            System.out.println(Thread.currentThread().getName()+(num--)+"剩余"+num);
+        synchronized (this){
+            if(num>0)
+                System.out.println(Thread.currentThread().getName()+(num--)+"剩余"+num);
+        }
     }
 }

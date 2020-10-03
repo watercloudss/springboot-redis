@@ -1,4 +1,4 @@
-package com.lly.Thread.annotation;
+package com.lly.annotation;
 
 /**
  * @Author: lly
